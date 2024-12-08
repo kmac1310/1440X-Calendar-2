@@ -31,7 +31,7 @@
             background-color: rgba(0, 0, 0, 0.7);
             padding: 4rem; /* Increased padding for larger block */
             border-radius: 0.5rem;
-            text-shadow: 0 0 10px #00FF41;
+            text-shadow: 0 0 5px #00FF41; /* Toned-down neon */
         }
 
         .minutes {
@@ -41,9 +41,10 @@
 
         .label {
             font-size: 1.5rem;
-            opacity: 0.8;
+            opacity: 0.6; /* Lighter opacity for the label */
             margin-top: 1rem;
             font-style: italic;
+            color: #A8F5A3; /* Softer green for the text */
         }
 
         .sub-label {
@@ -52,12 +53,9 @@
             font-weight: bold;
             color: #00FF41;
             text-shadow: 
-                0 0 5px #00FF41, 
-                0 0 10px #00FF41, 
-                0 0 20px #00FF41, 
-                0 0 30px #00FF41, 
-                0 0 40px #00FF41, 
-                0 0 50px #00FF41;
+                0 0 3px #00FF41, 
+                0 0 6px #00FF41, 
+                0 0 12px #00FF41; /* Duller neon glow */
         }
 
         .logo {
@@ -65,6 +63,10 @@
             font-size: 3rem; /* Font size for "1440" */
             color: #00FF41;
             font-weight: bold;
+            text-shadow: 
+                0 0 3px #00FF41, 
+                0 0 6px #00FF41, 
+                0 0 12px #00FF41; /* Toned-down glow */
         }
 
         .logo span.x {
@@ -73,26 +75,23 @@
             color: #00FF41; /* Match the neon green color */
             font-weight: bold;
             text-shadow: 
-                0 0 5px #00FF41, 
-                0 0 10px #00FF41, 
-                0 0 20px #00FF41, 
-                0 0 30px #00FF41, 
-                0 0 40px #00FF41, 
-                0 0 50px #00FF41; /* Add the neon glow to "X" */
+                0 0 3px #00FF41, 
+                0 0 6px #00FF41, 
+                0 0 12px #00FF41; /* Softer neon glow */
         }
 
         @keyframes pulse {
             0% {
                 transform: translate(-50%, -50%) scale(1);
-                text-shadow: 0 0 10px #00FF41;
+                text-shadow: 0 0 5px #00FF41;
             }
             50% {
                 transform: translate(-50%, -50%) scale(1.1);
-                text-shadow: 0 0 30px #00FF41, 0 0 40px #00FF41, 0 0 50px #00FF41;
+                text-shadow: 0 0 12px #00FF41, 0 0 15px #00FF41;
             }
             100% {
                 transform: translate(-50%, -50%) scale(1);
-                text-shadow: 0 0 10px #00FF41;
+                text-shadow: 0 0 5px #00FF41;
             }
         }
 
