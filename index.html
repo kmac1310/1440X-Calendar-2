@@ -29,7 +29,7 @@
             z-index: 2;
             text-align: center;
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 2rem;
+            padding: 4rem; /* Increased padding for larger block */
             border-radius: 0.5rem;
             text-shadow: 0 0 10px #00FF41;
         }
@@ -47,9 +47,9 @@
         }
 
         .sub-label {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin-top: 0.5rem;
-            font-weight: bold; /* Makes the text bold */
+            font-weight: bold;
             color: #00FF41;
             text-shadow: 
                 0 0 5px #00FF41, 
@@ -58,6 +58,22 @@
                 0 0 30px #00FF41, 
                 0 0 40px #00FF41, 
                 0 0 50px #00FF41;
+        }
+
+        .logo {
+            margin-top: 1rem; /* Add spacing above "1440X" */
+            font-size: 3rem; /* Font size for "1440" */
+            color: #00FF41;
+            font-weight: bold;
+        }
+
+        .logo span.x {
+            font-size: 5rem; /* Larger font size for "X" */
+            color: #007FFF; /* Slightly different color for contrast */
+            text-shadow: 
+                0 0 5px #007FFF, 
+                0 0 15px #007FFF, 
+                0 0 25px #007FFF;
         }
 
         @keyframes pulse {
@@ -119,6 +135,9 @@
         <div id="minutes" class="minutes">1440</div>
         <div class="label">Think Outside the Clock</div>
         <div class="sub-label">That clock is over 6,000 years old? Reboot Time!</div>
+        <div class="logo">
+            1440<span class="x">X</span>
+        </div>
     </div>
 
     <script>
