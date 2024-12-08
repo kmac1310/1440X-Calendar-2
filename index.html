@@ -46,6 +46,13 @@
             font-style: italic;
         }
 
+        .sub-label {
+            font-size: 1rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
         @keyframes pulse {
             0% {
                 transform: translate(-50%, -50%) scale(1);
@@ -104,6 +111,7 @@
     <div class="time-display">
         <div id="minutes" class="minutes">1440</div>
         <div class="label">Think Outside the Clock</div>
+        <div class="sub-label">That clock is over 6,000 years old? Reboot Time!</div>
     </div>
 
     <script>
@@ -125,20 +133,15 @@
         }
 
         function drawMatrix() {
-            // Semi-transparent black for trail effect
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Set text properties
             ctx.font = `bold ${fontSize}px monospace`;
             ctx.textAlign = 'center';
 
-            // Draw each drop
             drops.forEach((drop, i) => {
-                // Pick random character
                 const char = chars[Math.floor(Math.random() * chars.length)];
                 
-                // Random color (80% green, 20% blue)
                 if (Math.random() < 0.8) {
                     ctx.fillStyle = '#00FF41';
                     ctx.shadowColor = '#00FF41';
@@ -147,23 +150,13 @@
                     ctx.shadowColor = '#007FFF';
                 }
                 
-                // Add glow effect
                 ctx.shadowBlur = 5;
-                ctx.shadowOffsetX = 0;
-                ctx.shadowOffsetY = 0;
-
-                // Draw character
-                const x = i * fontSize + fontSize/2;
-                ctx.fillText(char, x, drop);
-
-                // Reset shadow
+                ctx.fillText(char, i * fontSize + fontSize / 2, drop);
                 ctx.shadowBlur = 0;
 
-                // Move drop
-                drops[i] += fontSize/2;
+                drops[i] += fontSize / 2;
 
-                // Reset drop to top when it reaches bottom
-                if (drop > canvas.height) {
+                if (drops[i] > canvas.height) {
                     drops[i] = 0;
                 }
             });
@@ -171,11 +164,9 @@
             animationFrameId = requestAnimationFrame(drawMatrix);
         }
 
-        // Initialize matrix effect
         initMatrix();
         drawMatrix();
 
-        // Handle window resize
         window.addEventListener('resize', () => {
             if (animationFrameId) {
                 cancelAnimationFrame(animationFrameId);
@@ -184,7 +175,6 @@
             drawMatrix();
         });
 
-        // Minute change effects
         function createRingEffect() {
             const ring = document.getElementById('ring');
             ring.classList.remove('ring-animate');
@@ -199,7 +189,6 @@
             display.classList.add('pulse');
         }
 
-        // Time update function
         function updateMinutesLeft() {
             const now = new Date();
             const nyTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
@@ -208,7 +197,6 @@
             const minutesLeft = 1440 - (nyTime.getHours() * 60 + currentMinute);
             document.getElementById('minutes').textContent = minutesLeft;
 
-            // Trigger effects on minute change
             if (lastMinute !== null && lastMinute !== currentMinute) {
                 pulseEffect();
                 createRingEffect();
@@ -217,9 +205,8 @@
             lastMinute = currentMinute;
         }
 
-        // Update time and start interval
         updateMinutesLeft();
         setInterval(updateMinutesLeft, 1000);
     </script>
 </body>
-</html>i
+</html>
